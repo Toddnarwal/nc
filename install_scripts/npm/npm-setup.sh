@@ -12,4 +12,4 @@ sudo docker run -d \
     -p 80:8080 \
     -p 443:4443 \
     -v npm_config:/config:rw \
-    jlesage/nginx-proxy-manage
+    jlesage/nginx-proxy-manager
