@@ -1,0 +1,26 @@
+version: "3"
+services:
+  nextcloud:
+    container_name: nextcloud
+    environment:
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+      - MYSQL_HOST="${MYSQL_HOST}"
+      - TZ="${TZ}"
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_USER="${MYSQL_USER}"
+    image: linuxserver/nextcloud:latest
+    networks:
+      - mariadb
+    ports:
+      - 4443:443/tcp
+    restart: always
+    volumes:
+      - nextcloud_config:/config
+      - Nextcloud_data:/data
+networks:
+  nextcloud:
+volumes:
+  nextcloud_config:
+  Nextcloud_data:

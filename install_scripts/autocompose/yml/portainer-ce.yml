@@ -1,0 +1,29 @@
+version: "3"
+services:
+  portainer-ce:
+    container_name: portainer-ce
+    entrypoint:
+      - /portainer
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    hostname: bab2ba4b4ddb
+    image: portainer/portainer-ce
+    ipc: private
+    logging:
+      driver: json-file
+      options: {}
+    mac_address: 02:42:ac:11:00:02
+    networks:
+      bridge:
+        aliases:
+    ports:
+      - 8000:8000/tcp
+      - 9000:9000/tcp
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    working_dir: /
+networks:
+  bridge:
+    external: true

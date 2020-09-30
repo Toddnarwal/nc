@@ -1,0 +1,30 @@
+version: "3"
+services:
+  watchtower:
+    command:
+      - --cleanup
+    container_name: watchtower
+    entrypoint:
+      - /watchtower
+    environment:
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    expose:
+      - 8080/tcp
+    hostname: 790482d79657
+    image: containrrr/watchtower
+    ipc: private
+    labels:
+      com.centurylinklabs.watchtower: true
+    logging:
+      driver: json-file
+      options: {}
+    mac_address: 02:42:ac:11:00:05
+    networks:
+      bridge:
+        aliases:
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+networks:
+  bridge:
+    external: true

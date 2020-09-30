@@ -1,0 +1,20 @@
+version: "3"
+services:
+  duckdns-tdouble:
+    container_name: duckdns-tdouble
+    entrypoint:
+      - /init
+    environment:
+      - TOKEN="${TOKEN}"
+      - TZ="${TZ}"
+      - SUBDOMAINS="${SUBDOMAINS}"
+    image: linuxserver/duckdns:latest
+    networks:
+      bridge:
+        aliases:
+    restart: always
+    volumes:
+      - duckdns_config:/config
+networks:
+  bridge:
+    external: true

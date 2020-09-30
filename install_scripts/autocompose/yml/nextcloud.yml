@@ -1,0 +1,80 @@
+version: "3"
+services:
+  nextcloud:
+    cap_add:
+      - AUDIT_WRITE
+      - CHOWN
+      - DAC_OVERRIDE
+      - FOWNER
+      - FSETID
+      - KILL
+      - MKNOD
+      - NET_BIND_SERVICE
+      - NET_RAW
+      - SETFCAP
+      - SETGID
+      - SETPCAP
+      - SETUID
+      - SYS_CHROOT
+    cap_drop:
+      - AUDIT_CONTROL
+      - BLOCK_SUSPEND
+      - DAC_READ_SEARCH
+      - IPC_LOCK
+      - IPC_OWNER
+      - LEASE
+      - LINUX_IMMUTABLE
+      - MAC_ADMIN
+      - MAC_OVERRIDE
+      - NET_ADMIN
+      - NET_BROADCAST
+      - SYSLOG
+      - SYS_ADMIN
+      - SYS_BOOT
+      - SYS_MODULE
+      - SYS_NICE
+      - SYS_PACCT
+      - SYS_PTRACE
+      - SYS_RAWIO
+      - SYS_RESOURCE
+      - SYS_TIME
+      - SYS_TTY_CONFIG
+      - WAKE_ALARM
+    container_name: nextcloud
+    entrypoint:
+      - /init
+    environment:
+      - MYSQL_PASSWORD=javatime
+      - MYSQL_HOST=mariadb
+      - TZ=America/Los_Angeles
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      - 'PS1=$(whoami)@$(hostname):$(pwd)\$ '
+      - HOME=/root
+      - TERM=xterm
+      - NEXTCLOUD_PATH=/config/www/nextcloud
+    hostname: 98f474006121
+    image: linuxserver/nextcloud:latest
+    ipc: private
+    labels:
+      build_version: 'Linuxserver.io version:- 19.0.3-ls99 Build-date:- 2020-09-16T12:37:57+01:00'
+      maintainer: aptalca
+    logging:
+      driver: json-file
+      options: {}
+    networks:
+      nextcloud:
+        aliases:
+          - 7b6f67d642b1
+    ports:
+      - 4443:443/tcp
+    restart: always
+    volumes:
+      - nextcloud_config:/config
+      - nextcloud_data:/data
+networks:
+  nextcloud:
+    external: true
