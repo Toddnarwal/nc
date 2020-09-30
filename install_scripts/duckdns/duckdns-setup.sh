@@ -8,7 +8,7 @@ echo ''
 echo 'STEP 1'
 sudo docker create \
   --name=duckdns-tdouble \
-  --env-file="/home/ubuntu/.env" \
+  --env-file="../env" \
   -v duckdns-tdouble_config:/config  \
   --restart unless-stopped \
   linuxserver/duckdns
