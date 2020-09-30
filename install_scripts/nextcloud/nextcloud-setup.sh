@@ -22,4 +22,4 @@ docker create \
 
 echo ''
 echo 'STEP 2'
-docker network connect bridge nextcloud
+docker network connect bridge mariadb
