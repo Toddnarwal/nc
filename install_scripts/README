@@ -1,15 +1,21 @@
 To rebuild this server:
 1. Install docker
 2. Install docker-compose
-3. Install portainer
+3. Install duckdns
 4. Install firefox "sudo apt-get install firefox xauth"
-5. Install duckdns
-6. Install nginx-proxy-manager
+5. Install nginx-proxy-manager **
+6. Install portainer
 7. Install mariadb
 8. Install nextcloud
-10. Install watchtower
+9. Install watchtower
+
+** Use firefox and x11 display forwarding to configure (very slow)
+
+---
 
 portainer           http://localhost:9000   docker exec -it duckdns /bin/bash
 duckdns             ---                     docker exec -it duckdns /bin/bash
 nginx-proxy-manager http://localhost:8181   docker exec -ti nginx-proxy-manager sh
 nextcloud           https://localhost:4443  docker exec -it nextcloud /bin/bash
+
+Start all docker containers:  docker start $(docker ps -a -q)
