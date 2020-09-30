@@ -22,4 +22,4 @@ docker create \
 
 echo ''
 echo 'STEP 2'
-docker network connect bridge 
+docker network connect bridge nextcloud
