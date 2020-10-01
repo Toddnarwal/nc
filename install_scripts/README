@@ -19,3 +19,5 @@ nginx-proxy-manager http://localhost:8181   docker exec -ti nginx-proxy-manager 
 nextcloud           https://localhost:4443  docker exec -it nextcloud /bin/bash
 
 Start all docker containers:  docker start $(docker ps -a -q)
+Stop all docker containers:  docker stop $(docker ps -q)
+Restart all docker containers:  docker restart $(docker ps -q)
