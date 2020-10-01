@@ -10,6 +10,7 @@ To rebuild this server:
 9. Install watchtower
 
 ** Use firefox and x11 display forwarding to configure (very slow)
+** "VcXsrv X Server" is needed for Windows 10
 
 ---
 
