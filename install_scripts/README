@@ -2,7 +2,7 @@ To rebuild this server:
 1. Install docker
 2. Install docker-compose
 3. Install duckdns
-4. Install firefox "sudo apt-get install firefox xauth"
+4. Install firefox "gcp: also need to install xauth"
 5. Install nginx-proxy-manager **
 6. Install portainer
 7. Install mariadb
