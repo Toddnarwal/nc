@@ -1,0 +1,2 @@
+This this docker compose file is untest:
+docker-compose --env-file ~/install_scripts/env up -d
