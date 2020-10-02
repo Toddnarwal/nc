@@ -1,10 +1,85 @@
 services:
+  duckdns:
+    container_name: "duckdns-${SUBDOMAINS}"
+    environment:
+      - TOKEN="${TOKEN}"
+      - TZ="${TZ}"
+      - SUBDOMAINS="${SUBDOMAINS}"
+    image: linuxserver/duckdns:latest
+    restart: always
+    volumes:
+      - duckdns_config:/config
+
+services:
+  nginx-proxy-manager:
+    container_name: nginx-proxy-manager
+    image: jlesage/nginx-proxy-manager
+    ports:
+      - 443:4443/tcp
+      - 80:8080/tcp
+      - 8181:8181/tcp
+    restart: always
+    volumes:
+      - ~/npm_config:/config:rw
+
+services:
+  portainer-ce:
+    container_name: portainer-ce
+    image: portainer/portainer-ce
+    ports:
+      - 8000:8000/tcp
+      - 9000:9000/tcp
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+services:
+  mariadb:
+    container_name: mariadb
+    environment:
+      - TZ="${TZ}"
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_USER="${MYSQL_USER}"
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+      - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
+    image: linuxserver/mariadb
+    networks:
+      mariadb:
+        aliases:
+    restart: always
+    volumes:
+      - ~/mariadb_config:/config
+
+services:
+  nextcloud:
+    container_name: nextcloud
+    environment:
+      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
+      - MYSQL_HOST="${MYSQL_HOST}"
+      - TZ="${TZ}"
+      - MYSQL_DATABASE="${MYSQL_DATABASE}"
+      - MYSQL_USER="${MYSQL_USER}"
+    image: linuxserver/nextcloud:latest
+    networks:
+      mariadb:
+        aliases:
+      bridge:
+        aliases:
+    ports:
+      - 4443:443/tcp
+    restart: always
+    volumes:
+      - ~/nextcloud_config:/config
+      - ~/nextcloud_data:/data
+
+services:
   onlyoffice:
     container_name: onlyoffice
-    image: alehoho/oo-ce-docker-license
-    restart: always
+    image: alehoho/oo-ce-docker-license:latest
     ports:
-      - "8080:80"
+      - 8080:80/tcp
+    restart: always
     volumes:
       - onlyoffice_data:/var/www/onlyoffice/Data
       - onlyoffice_custom:/usr/share/fonts/truetype/custom
@@ -13,3 +88,41 @@ services:
       - onlyoffice_rabbitmq:/var/lib/rabbitmq
       - onlyoffice_redis:/var/lib/redis
       - onlyoffice_log:/var/log/onlyoffice
+
+services:
+  watchtower:
+    command:
+      - --cleanup
+    container_name: watchtower
+    expose:
+      - 8080/tcp
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+services:
+  watchtower:
+    command:
+      - --cleanup
+    container_name: watchtower
+    image: containrrr/watchtower
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  mariadb:
+    external: true
+  bridge:
+    external: true
+
+volumes:
+  duckdns_config:
+  portainer_data:
+  onlyoffice_data:
+  onlyoffice_custom:
+  onlyoffice_lib:
+  onlyoffice_postgresql:
+  onlyoffice_rabbitmq:
+  onlyoffice_redis:
+  onlyoffice_log:
