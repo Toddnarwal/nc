@@ -15,5 +15,5 @@ services:
     volumes:
       - ~/mariadb_config:/config
 networks:
-  nextcloud:
+  mariadb:
     external: true
