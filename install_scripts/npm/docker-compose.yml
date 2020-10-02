@@ -11,5 +11,5 @@ services:
       - 8181:8181/tcp
     restart: always
     volumes:
-      - npm_config:/config:rw
+      - ~/npm_config:/config:rw
  
