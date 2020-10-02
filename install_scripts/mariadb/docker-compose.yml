@@ -13,7 +13,7 @@ services:
       - mariadb
     restart: always
     volumes:
-      - mariadb_config:/config
+      - ~/mariadb_config:/config
 networks:
   nextcloud:
     external: true
