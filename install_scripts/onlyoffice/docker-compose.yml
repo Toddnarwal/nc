@@ -13,3 +13,13 @@ services:
       - onlyoffice_rabbitmq:/var/lib/rabbitmq
       - onlyoffice_redis:/var/lib/redis
       - onlyoffice_log:/var/log/onlyoffice
+
+volumes:
+  onlyoffice_data:
+  onlyoffice_custom:
+  onlyoffice_lib:
+  onlyoffice_postgresql:
+  onlyoffice_rabbitmq:
+  onlyoffice_redis:
+  onlyoffice_log:
+  
