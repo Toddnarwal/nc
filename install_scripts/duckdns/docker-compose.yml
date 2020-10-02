@@ -1,7 +1,7 @@
 version: "3"
 services:
-  duckdns-tdouble:
-    container_name: duckdns-tdouble
+  duckdns:
+    container_name: "duckdns-${SUBDOMAINS}"
     entrypoint:
       - /init
     environment:
@@ -18,3 +18,5 @@ services:
 networks:
   bridge:
     external: true
+volumes:
+  duckdns_config:
