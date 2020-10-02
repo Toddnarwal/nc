@@ -17,10 +17,8 @@ services:
       - 4443:443/tcp
     restart: always
     volumes:
-      - nextcloud_config:/config
-      - Nextcloud_data:/data
+      - ~/nextcloud_config:/config
+      - ~/nextcloud_data:/data
+      
 networks:
-  nextcloud:
-volumes:
-  nextcloud_config:
-  Nextcloud_data:
+  mariadb:
