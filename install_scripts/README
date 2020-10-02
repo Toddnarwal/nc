@@ -22,6 +22,7 @@ nextcloud           https://localhost:4443  docker exec -it nextcloud /bin/bash
 Start all docker containers:  docker start $(docker ps -a -q)
 Stop all docker containers:  docker stop $(docker ps -q)
 Restart all docker containers:  docker restart $(docker ps -q)
+View docker logs:  docker logs -f nextcloud
 
 Copy from container to host:  docker cp -a nginx-proxy-manager:/config ./npm_config
 Copy from remote host to container:  scp -i ~/.ssh/my-ssh-key local-file-path username@ip-address:~
