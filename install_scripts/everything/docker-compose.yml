@@ -1,0 +1,15 @@
+services:
+  onlyoffice:
+    container_name: onlyoffice
+    image: alehoho/oo-ce-docker-license
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - onlyoffice_data:/var/www/onlyoffice/Data
+      - onlyoffice_custom:/usr/share/fonts/truetype/custom
+      - onlyoffice_lib:/var/lib/onlyoffice
+      - onlyoffice_postgresql:/var/lib/postgresql
+      - onlyoffice_rabbitmq:/var/lib/rabbitmq
+      - onlyoffice_redis:/var/lib/redis
+      - onlyoffice_log:/var/log/onlyoffice
