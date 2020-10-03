@@ -58,9 +58,6 @@ services:
      - ./.env
     environment:
       - TZ="${TZ}"
-      - MYSQL_DATABASE="${MYSQL_DATABASE}"
-      - MYSQL_USER="${MYSQL_USER}"
-      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
       - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
     image: linuxserver/mariadb
     restart: always
@@ -75,11 +72,7 @@ services:
     depends_on:
       - mariadb
     environment:
-      - MYSQL_PASSWORD="${MYSQL_PASSWORD}"
-      - MYSQL_HOST="${MYSQL_HOST}"
       - TZ="${TZ}"
-      - MYSQL_DATABASE="${MYSQL_DATABASE}"
-      - MYSQL_USER="${MYSQL_USER}"
     image: linuxserver/nextcloud:latest
     ports:
       - 4443:443/tcp
