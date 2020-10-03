@@ -18,8 +18,6 @@ services:
     container_name: "duckdns-${SUBDOMAINS}"
     env_file:
      - ./.env
-    cap_add:
-      - NET_ADMIN
     environment:
       - TOKEN="${TOKEN}"
       - TZ="${TZ}"
