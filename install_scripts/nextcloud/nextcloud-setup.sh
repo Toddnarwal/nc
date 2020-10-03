@@ -10,7 +10,6 @@ echo 'STEP 1'
 
 docker create \
   --name=nextcloud \
-  --net=mariadb \
   --env-file="../env" \
   -e PUID=1000 \
   -e PGID=1000 \
@@ -22,4 +21,4 @@ docker create \
 
 echo ''
 echo 'STEP 2'
-docker network connect bridge nextcloud
+docker network connect mariadb nextcloud
