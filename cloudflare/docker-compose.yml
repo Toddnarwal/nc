@@ -1,0 +1,35 @@
+version: '2'
+services:
+  cloudflare-npm:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=xxxxxxx
+      - ZONE=example.com
+      - SUBDOMAIN=npm
+      - PROXIED=true
+  cloudflare-portainer:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=xxxxxxx
+      - ZONE=example.com
+      - SUBDOMAIN=portainer
+      - PROXIED=true
+  cloudflare-onlyoffice:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=xxxxxxx
+      - ZONE=example.com
+      - SUBDOMAIN=onlyoffice
+      - PROXIED=true
+  cloudflare-nextcloud:
+    image: oznu/cloudflare-ddns:latest
+    restart: always
+    environment:
+      - API_KEY=xxxxxxx
+      - ZONE=example.com
+      - SUBDOMAIN=nextcloud
+      - PROXIED=true
+      
