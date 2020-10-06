@@ -5,6 +5,7 @@ services:
     restart: always
     environment:
       - API_KEY=xxxxxxx
+      - EMAIL=<CF email>
       - ZONE=example.com
       - SUBDOMAIN=npm
       - PROXIED=true
@@ -13,6 +14,7 @@ services:
     restart: always
     environment:
       - API_KEY=xxxxxxx
+      - EMAIL=<CF email>
       - ZONE=example.com
       - SUBDOMAIN=portainer
       - PROXIED=true
@@ -21,6 +23,7 @@ services:
     restart: always
     environment:
       - API_KEY=xxxxxxx
+      - EMAIL=<CF email>
       - ZONE=example.com
       - SUBDOMAIN=onlyoffice
       - PROXIED=true
@@ -29,6 +32,7 @@ services:
     restart: always
     environment:
       - API_KEY=xxxxxxx
+      - EMAIL=<CF email>
       - ZONE=example.com
       - SUBDOMAIN=nextcloud
       - PROXIED=true
