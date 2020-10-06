@@ -1,16 +1,19 @@
 To rebuild this server:
 1. Install docker
 2. Install docker-compose
-3. Install duckdns
-4. Install firefox "gcp: also need to install xauth"
-5. Install nginx-proxy-manager **
-6. Install portainer
+3. Install duckdns or cloudflare
+4. Install nginx-proxy-manager **
+5. Install portainer
+6. Install onlyoffice
 7. Install mariadb
 8. Install nextcloud
 9. Install watchtower
+10. Install firefox "gcp: also need to install xauth"
 
-** Use firefox and x11 display forwarding to configure (very slow)
-** "VcXsrv X Server" is needed for Windows 10
+** Use firefox and x11 display forwarding to configure nginx-proxy-manager
+** "VcXsrv X Server" is needed for Windows 10 x11 display forwarding
+** x11 display forwarding can be very slow is host is under powered 
+** 2G ram minimum with Onlyoffice, 1G ram without onlyoffice
 
 ---
 
