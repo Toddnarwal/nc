@@ -1,4 +1,5 @@
 #!/bin/bash
+
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -9,4 +10,3 @@ curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compo
 sudo  chmod +x /usr/local/bin/docker-compose
 sudo usermod -aG docker $USER
 newgrp docker 
-
