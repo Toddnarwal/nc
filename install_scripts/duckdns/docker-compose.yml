@@ -2,8 +2,6 @@ version: "3"
 services:
   duckdns:
     container_name: "duckdns-${SUBDOMAINS}"
-    entrypoint:
-      - /init
     environment:
       - TOKEN="${TOKEN}"
       - TZ="${TZ}"
