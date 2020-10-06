@@ -1,11 +1,6 @@
 #!/bin/bash
 
-echo ''
-echo 'STEP 0'
 docker volume create npm_config
-
-echo ''
-echo 'STEP 1'
 docker run -d \
     --name=nginx-proxy-manager \
     -p 8181:8181 \
