@@ -1,12 +1,7 @@
 #!/bin/bash
 
-echo ''
-echo 'STEP 0'
 sudo docker volume create nextcloud_config
 sudo docker volume create nextcloud_data 
-
-echo ''
-echo 'STEP 1'
 
 docker create \
   --name=nextcloud \
@@ -19,6 +14,4 @@ docker create \
   --restart always \
   linuxserver/nextcloud
 
-echo ''
-echo 'STEP 2'
 docker network connect mariadb nextcloud
