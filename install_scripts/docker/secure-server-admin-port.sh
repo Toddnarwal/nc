@@ -32,8 +32,8 @@ mkdir -p /etc/systemd/system/docker.service.d/
 echo # /etc/systemd/system/docker.service.d/override.conf > startup_options.conf
 echo [Service] >> startup_options.conf
 echo ExecStart= >> startup_options.conf
-echo ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=/home/rightified/.certs/ca.pem \
- --tlscert=/home/rightified/.certs/server-cert.pem --tlskey=/home/rightified/.certs/server-key.pem \
+echo ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=$HOME/.certs/ca.pem \
+ --tlscert=$HOME/.certs/server-cert.pem --tlskey=$HOME/.certs/server-key.pem \
   -H fd:// -H tcp://0.0.0.0:2376 >> startup_options.conf
   
 sudo systemctl daemon-reload
