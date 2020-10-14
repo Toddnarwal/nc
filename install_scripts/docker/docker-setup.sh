@@ -3,7 +3,6 @@
 #
 # Create certs to secure docker port for remote management
 # 
-
 export HOST=<your-domain-name>
 mkdir -p ~/.certs
 
@@ -34,9 +33,7 @@ rm extfile.cnf server.csr ~/.certs/ca.srl
 #
 # Override docker startup options
 #
-
 mkdir -p /etc/systemd/system/docker.service.d/
-
 echo # /etc/systemd/system/docker.service.d/override.conf > startup_options.conf
 echo [Service] >> startup_options.conf
 echo ExecStart= >> startup_options.conf
@@ -48,7 +45,6 @@ cp startup_options.conf /etc/systemd/system/docker.service.d/startup_options.con
 #
 # Install docker
 #
-
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
@@ -59,7 +55,6 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 #
 # Install docker-compose
 #
-
 curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo  chmod +x /usr/local/bin/docker-compose
 sudo usermod -aG docker $USER
@@ -68,6 +63,5 @@ newgrp docker
 #
 # Restart Docker (my not be needed)
 #
- 
 sudo systemctl daemon-reload
 sudo systemctl restart docker.service
