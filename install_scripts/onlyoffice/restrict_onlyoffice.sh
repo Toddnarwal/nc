@@ -6,4 +6,4 @@
 
 docker exec -it onlyoffice sed -i 's/"rules": \[{"address": "\*"/"rules": \[{"address": "<nextcloud.server.com>"/g' /etc/onlyoffice/documentserver/default.json
 
-supervisorctl restart all
+docker exec -it onlyoffice  supervisorctl restart all
