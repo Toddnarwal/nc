@@ -20,9 +20,10 @@ penssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
   -CAcreateserial -out server-cert.pem -extfile extfile.cnf
   
 mkdir ~/.certs
-cp ca.pem ~/.certs
-cp server-cert.pem ~/.certs
-cp server-key.pem ~/.certs
+mv ca.pem ~/.certs
+mv ca-key.pem ~/.certs
+mv server-cert.pem ~/.certs
+mv server-key.pem ~/.certs
 
 #
 # Override docker startup options
