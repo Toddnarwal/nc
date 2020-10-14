@@ -8,7 +8,8 @@ openssl genrsa -out key.pem 4096
 openssl req -subj '/CN=client' -new -key key.pem -out client.csr
 echo extendedKeyUsage = clientAuth > extfile-client.cnf
 
-# Copy ca.pem and ca-key.pem are generated after running secure-server-admin-port.sh
+# Copy ca.pem and ca-key.pem from remote docker server
+# ca.pem and ca-key.pem are generated after running docker-setup.sh
 openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem \
   -CAcreateserial -out cert.pem -extfile extfile-client.cnf
 
