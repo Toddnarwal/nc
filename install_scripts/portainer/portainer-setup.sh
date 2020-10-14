@@ -15,12 +15,12 @@ openssl genrsa -out docker-key.pem 4096
 openssl req -subj '/CN=client' -new -key docker-key.pem -out client.csr
 echo extendedKeyUsage = clientAuth > extfile-client.cnf
 
-
 # ca.pem and ca-key.pem are generated after running docker-setup.sh
 # Copy ca.pem and ca-key.pem from remote docker server
 openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem \
   -CAcreateserial -out docker-cert.pem -extfile extfile-client.cnf
 # docker-cert.pem and docker-key.pem are used to configure remote docker access from Portainer GUI
+# https://lemariva.com/blog/2019/12/portainer-managing-docker-engine-remotely
 
 #
 # Clean up
