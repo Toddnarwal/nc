@@ -7,8 +7,7 @@ To rebuild this server:
 6. Install onlyoffice
 7. Install mariadb
 8. Install nextcloud
-9. Install watchtower
-10. Install firefox "gcp: also need to install xauth"
+9. Install firefox "gcp: also need to install xauth"
 
 ** Use firefox and x11 display forwarding to configure nginx-proxy-manager
 ** "VcXsrv X Server" is needed for Windows 10 x11 display forwarding
