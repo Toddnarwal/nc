@@ -5,25 +5,24 @@
 #
 
 export HOST=<your-domain-name>
+mkdir ~/.certs
 
-openssl genrsa -aes256 -out ca-key.pem 4096
+openssl genrsa -aes256 -out ~/.certs/ca-key.pem 4096
 # enter a pass phrase to protect the ca-key
 
-openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem -subj "/C=/ST=/L=/O=/CN=$HOST"
+openssl req -new -x509 -days 365 -key ~/.certs/ca-key.pem -sha256 \
+ -out ~/.certs/ca.pem -subj "/C=/ST=/L=/O=/CN=$HOST"
 # enter a pass phrase to create ca.pem
 
-openssl genrsa -out server-key.pem 4096
-openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
-echo subjectAltName = DNS:$HOST,IP:127.0.0.1 >> extfile.cnf
-echo extendedKeyUsage = serverAuth >> extfile.cnf
-openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
-  -CAcreateserial -out server-cert.pem -extfile extfile.cnf
-  
-mkdir ~/.certs
-mv ca.pem ~/.certs
-mv ca-key.pem ~/.certs
-mv server-cert.pem ~/.certs
-mv server-key.pem ~/.certs
+openssl genrsa -out ~/.certs/server-key.pem 4096
+openssl req -subj "/CN=$HOST" -sha256 -new -key ~/.certs/server-key.pem \
+ -out ~/.certs/server.csr
+echo subjectAltName = DNS:$HOST,IP:127.0.0.1 >> ~/.certs/extfile.cnf
+echo extendedKeyUsage = serverAuth >> ~/.certs/extfile.cnf
+openssl x509 -req -days 365 -sha256 -in ~/.certs/server.csr -CA ~/.certs/ca.pem \
+ -CAkey ~/.certs/ca-key.pem -CAcreateserial -out ~/.certs/server-cert.pem \
+ -extfile ~/.certs/extfile.cnf
+# enter a pass phrase to create server-cert.pem
 
 #
 # Override docker startup options
