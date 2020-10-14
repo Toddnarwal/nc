@@ -16,7 +16,7 @@ openssl genrsa -out server-key.pem 4096
 openssl req -subj "/CN=$HOST" -sha256 -new -key server-key.pem -out server.csr
 echo subjectAltName = DNS:$HOST,IP:127.0.0.1 >> extfile.cnf
 echo extendedKeyUsage = serverAuth >> extfile.cnf
-penssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
+openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
   -CAcreateserial -out server-cert.pem -extfile extfile.cnf
   
 mkdir ~/.certs
