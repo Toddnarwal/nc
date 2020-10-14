@@ -40,7 +40,7 @@ echo ExecStart= >> startup_options.conf
 echo ExecStart=/usr/bin/dockerd --tlsverify --tlscacert=$HOME/.certs/ca.pem \
  --tlscert=$HOME/.certs/server-cert.pem --tlskey=$HOME/.certs/server-key.pem \
   -H fd:// -H tcp://0.0.0.0:2376 >> startup_options.conf
-cp startup_options.conf /etc/systemd/system/docker.service.d/startup_options.conf
+mv startup_options.conf /etc/systemd/system/docker.service.d/startup_options.conf
 
 #
 # Install docker
