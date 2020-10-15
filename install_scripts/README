@@ -3,11 +3,10 @@ To rebuild this server:
 2. Install docker-compose
 3. Install duckdns or cloudflare
 4. Install nginx-proxy-manager **
-5. Install portainer
-6. Install onlyoffice
-7. Install mariadb
-8. Install nextcloud
-9. Install firefox "gcp: also need to install xauth"
+5. Install onlyoffice
+6. Install mariadb
+7. Install nextcloud
+8. Install firefox "gcp: also need to install xauth"
 
 ** Use firefox and x11 display forwarding to configure nginx-proxy-manager
 ** "VcXsrv X Server" is needed for Windows 10 x11 display forwarding
