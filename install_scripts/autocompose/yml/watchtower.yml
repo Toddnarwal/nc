@@ -10,7 +10,6 @@ services:
       - PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
     expose:
       - 8080/tcp
-    hostname: 790482d79657
     image: containrrr/watchtower
     ipc: private
     labels:
@@ -18,7 +17,6 @@ services:
     logging:
       driver: json-file
       options: {}
-    mac_address: 02:42:ac:11:00:05
     networks:
       bridge:
         aliases:
