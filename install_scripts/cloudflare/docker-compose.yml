@@ -9,15 +9,6 @@ services:
       - ZONE=example.com
       - SUBDOMAIN=npm
       - PROXIED=true
-  cloudflare-npm:
-    image: oznu/cloudflare-ddns:latest
-    restart: always
-    environment:
-      - API_KEY=xxxxxxx
-      - EMAIL=<CF email>
-      - ZONE=example.com
-      - SUBDOMAIN=npm
-      - PROXIED=true
   cloudflare-onlyoffice:
     image: oznu/cloudflare-ddns:latest
     restart: always
