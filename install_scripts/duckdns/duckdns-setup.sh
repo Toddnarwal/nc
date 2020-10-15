@@ -1,14 +1,9 @@
 #!/bin/bash
 
-echo ''
-echo 'STEP 0'
-docker volume create duckdns-tdouble_config
-
-echo ''
-echo 'STEP 1'
+docker volume create duckdns
 docker create \
-  --name=duckdns-tdouble \
+  --name=duckdns \
   --env-file="../env" \
-  -v duckdns-tdouble_config:/config  \
-  --restart unless-stopped \
+  -v duckdns:/config  \
+  --restart always \
   linuxserver/duckdns
