@@ -2,5 +2,5 @@
   
   docker stop onlyoffice
   docker rm onlyoffice
-  docker volume purge -f
+  docker volume prune -f
   
