@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker stop duckdns-tdouble
-docker rm duckdns-tdouble
+docker stop duckdns
+docker rm duckdns
 docker volume prune -f
