@@ -1,7 +1,7 @@
 services:
   onlyoffice:
     container_name: onlyoffice
-    image: alehoho/oo-ce-docker-license
+    image: onlyoffice/documentserver:5.4.2.46
     restart: always
     ports:
       - "8080:80"
