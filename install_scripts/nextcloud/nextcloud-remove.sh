@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo docker stop nextcloud
-sudo docker rm nextcloud
-sudo docker volume prune -f
+docker stop nextcloud
+docker rm nextcloud
+docker volume prune -f
