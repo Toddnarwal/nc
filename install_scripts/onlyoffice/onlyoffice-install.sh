@@ -8,7 +8,7 @@ docker volume create onlyoffice_rabbitmq
 docker volume create onlyoffice_redis
 docker volume create onlyoffice_log
 
-sudo docker run -i -t -d --restart=always --name onlyoffice -p 8080:80 \
+docker run -i -t -d --restart=always --name onlyoffice -p 8080:80 \
   -v onlyoffice_data:/var/www/onlyoffice/Data \
   -v onlyoffice_custom:/usr/share/fonts/truetype/custom \
   -v onlyoffice_lib:/var/lib/onlyoffice \
