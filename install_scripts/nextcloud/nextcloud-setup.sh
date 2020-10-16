@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo docker volume create nextcloud_config
-sudo docker volume create nextcloud_data 
+docker volume create nextcloud_config
+docker volume create nextcloud_data 
 
 docker create \
   --name=nextcloud \
