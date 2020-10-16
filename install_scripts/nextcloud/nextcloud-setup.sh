@@ -3,7 +3,7 @@
 docker volume create nextcloud_config
 docker volume create nextcloud_data 
 
-docker create \
+docker run \
   --name=nextcloud \
   --env-file="../env" \
   -e PUID=1000 \
