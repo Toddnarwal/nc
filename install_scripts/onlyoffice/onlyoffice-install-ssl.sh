@@ -11,6 +11,13 @@ docker run -i -t -d --restart=always --name onlyoffice -p 8443:443 \
   onlyoffice/documentserver:5.4.2.46
 
 docker exec -it onlyoffice openssl genrsa -out onlyoffice.key 2048
-docker exec -it onlyoffice openssl req -new -key onlyoffice.key -out onlyoffice.csr
+docker exec -it onlyoffice openssl req -new -key onlyoffice.key -out onlyoffice.csr -subj "/C=/ST=/L=/O=/CN=onlyoffice ssl"
 docker exec -it onlyoffice openssl x509 -req -days 365 -in onlyoffice.csr -signkey onlyoffice.key -out onlyoffice.crt
 docker exec -it onlyoffice openssl dhparam -out dhparam.pem 2048
+
+docker exec -it onlyoffice mkdir -p /var/www/onlyoffice/Data/certs
+docker exec -it onlyoffice mv onlyoffice.key /var/www/onlyoffice/Data/certs/
+docker exec -it onlyoffice mv onlyoffice.crt /var/www/onlyoffice/Data/certs/
+docker exec -it onlyoffice mv dhparam.pem /var/www/onlyoffice/Data/certs/
+
+docker restart onlyoffice
