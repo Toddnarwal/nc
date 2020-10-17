@@ -1,3 +1,5 @@
+#!/bin/bash
+
 docker run -i -t -d --restart=always --name onlyoffice -p 8443:443 \
   -v onlyoffice_data:/var/www/onlyoffice/Data \
   -v onlyoffice_custom:/usr/share/fonts/truetype/custom \
@@ -7,3 +9,8 @@ docker run -i -t -d --restart=always --name onlyoffice -p 8443:443 \
   -v onlyoffice_redis:/var/lib/redis \
   -v onlyoffice_log:/var/log/onlyoffice \
   onlyoffice/documentserver:5.4.2.46
+
+docker exec -it onlyoffice openssl genrsa -out onlyoffice.key 2048
+docker exec -it onlyoffice openssl req -new -key onlyoffice.key -out onlyoffice.csr
+docker exec -it onlyoffice openssl x509 -req -days 365 -in onlyoffice.csr -signkey onlyoffice.key -out onlyoffice.crt
+docker exec -it onlyoffice openssl dhparam -out dhparam.pem 2048
