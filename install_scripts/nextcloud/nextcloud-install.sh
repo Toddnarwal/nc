@@ -11,6 +11,7 @@ docker run \
   -p 4443:443 \
   -v nextcloud_config:/config \
   -v nextcloud_data:/data \
+  -v dropbox_data:/Dropbox \
   --restart always \
   linuxserver/nextcloud
 
