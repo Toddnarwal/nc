@@ -6,4 +6,4 @@ docker run --detach --name=dropbox --restart=always \
   -v "$HOME:/opt/dropbox/Dropbox" \
   otherguy/dropbox:latest
   
-# Check logs for dropbox url to allow access
+# Check logs for dropbox url to allow access:  docker logs --follow dropbox
