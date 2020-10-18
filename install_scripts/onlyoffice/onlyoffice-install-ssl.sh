@@ -1,5 +1,13 @@
 #!/bin/bash
 
+docker volume create onlyoffice_data
+docker volume create onlyoffice_custom
+docker volume create onlyoffice_lib
+docker volume create onlyoffice_postgresql
+docker volume create onlyoffice_rabbitmq
+docker volume create onlyoffice_redis
+docker volume create onlyoffice_log
+
 docker run -i -t -d --restart=always --name onlyoffice -p 8443:443 \
   -v onlyoffice_data:/var/www/onlyoffice/Data \
   -v onlyoffice_custom:/usr/share/fonts/truetype/custom \
