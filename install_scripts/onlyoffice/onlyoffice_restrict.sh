@@ -4,7 +4,7 @@
 # Restrict onlyoffice to nextcloud instance
 #
 
-docker exec -it onlyoffice sed -i 's/"string": "Secret"/"string": "Secret"/g' /etc/onlyoffice/documentserver/default.json
+docker exec -it onlyoffice sed -i 's/"string": "secret"/"string": "supersecretpassword"/g' /etc/onlyoffice/documentserver/default.json
 docker exec -it onlyoffice sed -i 's/"browser": false/"browser": true/g' /etc/onlyoffice/documentserver/default.json
 docker exec -it onlyoffice sed -i 's/"inbox": false/"inbox": true/g' /etc/onlyoffice/documentserver/default.json
 docker exec -it onlyoffice sed -i 's/"outbox": false/"outbox": true/g' /etc/onlyoffice/documentserver/default.json
