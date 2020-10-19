@@ -1,0 +1,1 @@
+These startup files only needed if your hardware has limited resources.  Without the delay/staggered container startup, onlyoffice, nextcloud, mariadb, and dropbox will not run on the 2gb vm.
