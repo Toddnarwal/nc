@@ -1,3 +1,5 @@
+# Copy start-containers.service to /etc/systemd/system/ and chmod 644 /etc/systemd/system/start-containers.service
+
 [Unit]
 Description=start docker containers
 
