@@ -29,6 +29,15 @@ View docker logs:  docker logs -f nextcloud
 Copy from container to host:  docker cp -a nginx-proxy-manager:/config ./npm_config
 Copy from remote host to host:  scp -i ~/.ssh/my-ssh-key local-file-path username@ip-address:~
 
+Create a self-signed certificate:  step ca certificate localhost localhost.crt localhost.key
+Download root_ca.crt from step-ca:  step ca root root_ca.crt
+
+Extract cert expiration date:  step certificate inspect example.com.crt --format json | jq -r .validity.end
+Extract cert expiration date:  step certificate inspect https://smallstep.com --format json | jq -r .validity.end
+
+Renew a certificate:  step ca renew foo.crt foo.key --force
+Revoke a certificate:  step ca revoke --cert foo.crt --key foo.key
+
 git clone https://github.com/Toddnarwal/nc
 
 ---
