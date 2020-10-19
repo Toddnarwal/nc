@@ -29,6 +29,8 @@ View docker logs:  docker logs -f nextcloud
 Copy from container to host:  docker cp -a nginx-proxy-manager:/config ./npm_config
 Copy from remote host to host:  scp -i ~/.ssh/my-ssh-key local-file-path username@ip-address:~
 
+Find fingerprint:  step certificate fingerprint /home/step/certs/root_ca.crt
+
 Create a self-signed certificate:  step ca certificate localhost localhost.crt localhost.key
 Download root_ca.crt from step-ca:  step ca root root_ca.crt
 
