@@ -8,5 +8,4 @@ docker run -d \
     containrrr/watchtower  cloudflare-nextcloud \
     cloudflare-npm  cloudflare-onlyoffice  \ 
     nextcloud  dropbox  duckdns-gcpdocserver  \ 
-    mariadb  nginx-proxy-manager  portainer-ce  \
-    --cleanup 
+    mariadb  nginx-proxy-manager  --cleanup 
