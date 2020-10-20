@@ -28,3 +28,4 @@ curl https://localhost:9999/health
 
 # create certs
 step ca certificate localhost localhost.crt localhost.key
+step ca revoke --cert localhost.crt --key localhost.key
