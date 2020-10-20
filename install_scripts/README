@@ -44,6 +44,10 @@ git clone https://github.com/Toddnarwal/nc
 
 ---
 
+chmod +x {./onlyoffice/*.sh,./docker/*.sh,./duckdns/*.sh,./autocompose/*.sh,./mariadb/*.sh,./nextcloud/*.sh,./npm/*.sh}
+
+---
+
 Microsoft Window Apps
 - Putty
 - vcxsvr
