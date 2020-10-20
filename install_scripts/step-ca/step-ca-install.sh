@@ -11,7 +11,7 @@ $ step ca init
 ✔ What do you want your password to be?: <your password here>
 $ echo <your password here> > /home/step/secrets/password
 
-docker run -d -p 127.0.0.1:9000:9000 -v step:/home/step smallstep/step-ca
+docker run -d --name step-ca -p 127.0.0.1:9000:9000 -v step:/home/step smallstep/step-ca
 
 # Configure local step-cli 
 step ca bootstrap --ca-url https://localhost:9000 --install --fingerprint f9e45ae9ec5d42d702ce39fd9f3125372ce54d0b29a5ff3016b31d9b887a61a4
