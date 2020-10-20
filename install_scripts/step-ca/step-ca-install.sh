@@ -23,7 +23,7 @@ docker exec -it step-ca step certificate fingerprint /home/step/certs/root_ca.cr
 # Use root fingerprint from above command
 step ca bootstrap --ca-url https://localhost:9999 --install --fingerprint 0123456789012345678901234567890123456789012345678901234567890123
 
-# test
+# test step-ca
 curl https://localhost:9999/health
 
 # create certs
