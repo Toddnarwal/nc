@@ -29,4 +29,7 @@ rm extfile-client.cnf client.csr
 
 # Installing Portainer
 docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9443:9000 --name=portainer-ce --restart=always -v ~/local-certs:/certs -v portainer_data:/data -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key
+docker run -d -p 8000:8000 -p 9443:9000 --name=portainer-ce \
+ --restart=always -v ~/local-certs:/certs -v portainer_data:/data \
+ -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer-ce \
+ --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key \
