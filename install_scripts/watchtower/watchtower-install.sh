@@ -4,7 +4,7 @@
 docker run -d \
     --name watchtower \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /etc/timezone:/etc/timezone:ro  \
+    -v TZ:America/Los_Angeles  \
     containrrr/watchtower  cloudflare-nextcloud \
     cloudflare-npm  cloudflare-onlyoffice  \ 
     nextcloud  dropbox  duckdns-gcpdocserver  \ 
