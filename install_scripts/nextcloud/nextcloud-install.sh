@@ -6,8 +6,7 @@ docker volume create nextcloud_data
 docker run \
   --name=nextcloud \
   --env-file="../env" \
-  -e PUID=1000 \
-  -e PGID=1000 \
+  -e PUID=$(id -u) -e PGID=$(id -g) \
   -p 4443:443 \
   -v nextcloud_config:/config \
   -v nextcloud_data:/data \
