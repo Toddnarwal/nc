@@ -27,7 +27,8 @@ step ca bootstrap --ca-url https://localhost:9999 --install --fingerprint 012345
 curl https://localhost:9999/health
 
 # create certs
-step ca certificate localhost localhost.crt localhost.key
+step ca certificate localhost localhost.crt localhost.key --kty=RSA
 step ca revoke --cert localhost.crt --key localhost.key
 step ca root root_ca.crt
-step certificate inspect test.pem
+step certificate inspect --short test.pem
+step ca renew --daemon localhost.crt localhost.key
