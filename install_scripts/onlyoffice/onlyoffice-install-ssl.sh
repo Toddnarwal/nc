@@ -28,4 +28,4 @@ docker exec -it onlyoffice mv onlyoffice.key /var/www/onlyoffice/Data/certs/
 docker exec -it onlyoffice mv onlyoffice.crt /var/www/onlyoffice/Data/certs/
 docker exec -it onlyoffice mv dhparam.pem /var/www/onlyoffice/Data/certs/
 
-docker restart onlyoffice
+supervisorctl restart all
