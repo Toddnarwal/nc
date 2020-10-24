@@ -32,3 +32,4 @@ step ca revoke --cert localhost.crt --key localhost.key
 step ca root root_ca.crt
 step certificate inspect --short test.pem
 step ca renew --daemon localhost.crt localhost.key
+step ca renew localhost.crt localhost.key --force
